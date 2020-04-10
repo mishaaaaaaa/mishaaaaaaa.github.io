@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id = "someId"></ul>
+
+	<table id = 'maintable'></table>
+</body>
+	<script src="script.js"></script>
+	
+	<script>
+
+	table = new Table({
+	'id': 'maintable',
+	'head': ['col1', 'col2', 'col3', 'col4', 'col5'],
+	'width': 700,
+	'data': [
+	{
+		'properties':{
+			'rowHeadName': 'someText',
+			'rowHeadColor':'blue',
+			'rowTextAlign': 'left',
+			'bgc' : 'yellow',
+			'dataTextAlign' : 'center'
+		},
+		'data' : ['123','123','123','123','123']
+	},
+		{
+		'properties':{
+			'rowHeadName': 'someText',
+			'rowHeadColor':'blue',
+			'rowTextAlign': 'left',
+			'bgc' : 'yellow',
+			'dataTextAlign' : 'center'
+		},
+		'data' : ['123','123','123','123','123']
+	},
+		{
+		'properties':{
+			'rowHeadName': 'someText',
+			'rowHeadColor':'blue',
+			'rowTextAlign': 'left',
+			'bgc' : 'yellow',
+			'dataTextAlign' : 'center'
+		},
+		'data' : ['123','123','123','123','123']
+	}
+	]
+})
+
+
+
+
+
+	</script>
+</html>
