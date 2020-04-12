@@ -94,23 +94,24 @@ class Table{
 
 			item['data'].forEach((cellItem) =>{
 				let rowCell = document.createElement('td')
+				rowCell.classList.add('hui')
 				let someBgc = item['properties']['bgc']
 				rowCell.innerHTML = cellItem 
 				rowCell.style.width = rowSpaceBetween
 				rowCell.style.textAlign = item['properties']['dataTextAlign']
 
-				rowCell.style.backgroundColor = null
-				if(rowCell.onmouseenter = true){
-					rowCell.style.backgroundColor = someBgc  //второй способ чтоб реализовать hover 
-				}
+				// rowCell.style.backgroundColor = null
+				// if(rowCell.onmouseenter = true){
+				// 	rowCell.style.backgroundColor = someBgc  //второй способ чтоб реализовать hover 
+				// }
 
 
 
 
-
+				rowCell.addEventListener('mouseover', ()=>{ rowCell.style.backgroundColor = item['properties']['bgc']})
 				row.insertAdjacentHTML('beforeEnd', rowCell.outerHTML)
 
-				rowCell.addEventListener('mouseover', ()=>{ rowCell.style.backgroundColor = item['properties']['bgc']}) // первый способ чтоб реализовать hover
+				 // первый способ чтоб реализовать hover
 
 			})
 			this.element.insertAdjacentHTML('beforeEnd', row.outerHTML)

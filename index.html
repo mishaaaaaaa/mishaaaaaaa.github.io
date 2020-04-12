@@ -9,51 +9,38 @@
 
 	<table id = 'maintable'></table>
 </body>
-	<script src="dist/script.js"></script>
-	
+	<script src="src/script.js"></script>
+
+
 	<script>
 
-	table = new Table({
-	'id': 'maintable',
-	'head': ['col1', 'col2', 'col3', 'col4', 'col5'],
-	'width': 700,
-	'data': [
-	{
-		'properties':{
-			'rowHeadName': 'someText',
-			'rowHeadColor':'blue',
-			'rowTextAlign': 'left',
-			'bgc' : 'yellow',
-			'dataTextAlign' : 'center'
-		},
-		'data' : ['123','123','123','123','123']
-	},
-		{
-		'properties':{
-			'rowHeadName': 'someText',
-			'rowHeadColor':'blue',
-			'rowTextAlign': 'left',
-			'bgc' : 'yellow',
-			'dataTextAlign' : 'center'
-		},
-		'data' : ['123','123','123','123','123']
-	},
-		{
-		'properties':{
-			'rowHeadName': 'someText',
-			'rowHeadColor':'blue',
-			'rowTextAlign': 'left',
-			'bgc' : 'yellow',
-			'dataTextAlign' : 'center'
-		},
-		'data' : ['123','123','123','123','123']
-	}
-	]
-})
+		function getTable(callback) {
+
+			var xhr = new XMLHttpRequest()
+			xhr.overrideMimeType("aplication/json")
+			xhr.open('GET', 'tables.json' ,true)
+			xhr.onreadystatechange = function () {
+
+				if (xhr.readyState == 4 && xhr.status == "200") {
+
+					callback(xhr.responseText)
+
+				}
+
+			}
+
+
+			xhr.send(null)
+		}
+
+		getTable(function(response){
+			let json = JSON.parse(response)
+
+			console.log (json)
+
+			new Table (json)
+		})
 
 
 
-
-
-	</script>
-</html>
+	</script></html>
